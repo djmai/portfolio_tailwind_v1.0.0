@@ -1,0 +1,689 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  @apply text-[14px] leading-[1.7] text-[#888]
+}
+
+/* spinner loader page */
+#preloader {
+  @apply bg-white h-full fixed w-full z-[5]
+}
+
+.outer {
+  @apply absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2
+}
+
+.spinner {
+  @apply my-[100px] mx-auto w-[40px] h-[40px] relative text-center animate-spinner
+}
+
+.dot1,
+.dot2 {
+  @apply animate-skbounce ease-in-out w-[60%] h-[60%] inline-block absolute top-0 bg-red-500 rounded-[100%]
+}
+
+.dot2 {
+  @apply top-auto bottom-0 animation-delay-1
+}
+
+/* spinner loader page */
+
+
+/* site wrapper */
+.site-wrapper {
+  @apply w-[1170px] sm:px-[15px] mx-auto md:px-[15px] lg:px-[15px] sm:w-full md:w-full lg:w-full xl:w-[970px]
+}
+
+/* mobile header */
+.mobile-header {
+  @apply bg-[#4A63E7] rounded-[20px] transform translate-x-0 transition-all duration-[0.3s] ease-in-out hidden lg:flex xl:hidden
+}
+
+header.left.open {
+  @apply lg:transform lg:translate-x-0
+}
+
+.push, main.content.push {
+  @apply lg:transform lg:translate-x-[295px]
+}
+/* button menú */
+
+.mobile-header button.menu-icon {
+  @apply cursor-pointer bg-transparent border-0 outline-none align-middle p-0
+}
+
+.mobile-header button.menu-icon span {
+  @apply bg-white rounded-[10px] block h-[4px] w-[25px] my-[5px]
+}
+
+.mobile-header a {
+  @apply text-white
+}
+
+/* mobile header image*/
+
+.mobile-header .logo img {
+  @apply max-h-[40px] max-w-[40px] rounded-full border-[3px]
+}
+
+.mobile-header .site-title {
+  @apply align-middle text-[24px] font-[700] ml-2 after:content-['Hola']
+}
+
+.site-title.dot::after {
+  @apply content-[''] bg-[#FF5959] rounded-[50%] inline-block ml-[5px] h-[6px] w-[6px]
+}
+
+/* mobile header */
+
+header.left {
+  @apply text-white bg-[#4A63E7] rounded-[20px] min-h-[620px] max-h-[620px] top-[50px] overflow-hidden fixed w-[265px] md:top-[25px] lg:top-[25px] md:float-none lg:float-none md:transform md:-translate-x-[380px] lg:-translate-x-[380px] transform transition-all duration-300 ease-in-out shadow-[5px_5px_20px_rgba(255,255,255,1)]
+}
+
+header .site-title {
+  @apply block text-[20px] font-normal
+}
+
+
+.close:not(:disabled):not(.disabled) {
+  @apply cursor-pointer
+}
+
+header.left button.close {
+  @apply hidden md:block p-0 float-right bg-[#FFF] border-0 opacity-[1] text-[#FF5959] font-normal text-[16px] rounded-[50%] w-[20px] h-[20px]  mt-[16px] mr-[18px] relative z-[1]
+}
+
+header.left .header-inner {
+  @apply w-full top-0 bottom-0 left-0 right-0 p-[30px] absolute
+}
+
+header.left .mCustomScrollBox {
+  @apply w-full overflow-visible
+}
+
+.social-icons li a {
+  @apply text-[#FFF] bg-[#FF5959] rounded-[50%] block h-[30px] leading-8 text-center w-[30px]
+}
+
+.social-icons li a:hover {
+  @apply text-[#FF5959] bg-[#FFF]
+}
+
+header .copyright {
+  @apply text-[12px] opacity-70
+}
+
+.img-profile {
+  @apply max-h-[80px] max-w-[80px] rounded-full border-[3px]
+}
+
+.mCustomScrollBox {
+  @apply relative overflow-hidden h-full max-w-[100%] outline-[0]
+}
+
+.mCSB_container {
+  @apply w-auto h-auto
+}
+
+header.left .mCSB_inside > .mCSB_container {
+  @apply mr-0 min-h-[99.91%] overflow-visible flex items-start flex-col
+}
+
+header .site-slogan {
+  @apply text-[12px] uppercase
+}
+
+header.left nav {
+  @apply mt-[40px] block
+}
+
+header .vertical-menu {
+  @apply text-[14px] list-none p-0 m-0
+}
+
+header .vertical-menu li {
+  @apply leading-[2.5] relative
+}
+
+header .vertical-menu li a {
+  @apply ml-0 p-0 transition-all duration-[0.3s] ease-in-out
+}
+
+.nav-link {
+  @apply block
+}
+
+header .vertical-menu li a.active::before {
+  @apply content-[''] bg-[#FF5959] block h-[18px] -left-[30px] top-[7px] absolute w-[3px]
+}
+
+header .vertical-menu i {
+  @apply mr-[20px]
+}
+
+header .vertical-menu li a:hover {
+  @apply ml-[15px]
+}
+
+.social-icons li:not(:last-child) {
+  @apply mr-[0.3rem]
+}
+
+
+/* main content */
+main.content {
+  @apply
+    my-[50px] w-[875px] transform translate-x-0 transition-all delay-[0s] duration-[0.3s] ease-in-out /* Global*/
+    lg:mt-[20px] lg:float-none lg:w-full /* sm Pequeño */
+     /* md Mediano */
+     xl:w-[675px]/* lg Largo */
+     /* xl Grande */
+     /* 2xl Extra Grande */
+}
+
+section {
+  @apply rounded-[20px] relative overflow-hidden mt-[50px];
+}
+
+.hero {
+  @apply 
+    h-[620px] mt-0 shadow-md shadow-gray-600
+    md:h-auto md:mt-0 md:p-[60px_30px]
+}
+
+.hero .cta {
+  @apply
+    text-white max-w-[600px] z-[1]
+}
+
+.hero .cta h1 {
+  @apply
+  text-white text-[60px] leading-[0.7]
+    sm:text-[36px]
+    md:text-[36px] md:leading-[1.2]
+    xl:text-[48px]
+}
+
+.hero .cta h1 .dot {
+  @apply
+  after:content-['']
+   md:hidden
+}
+
+.hero .cta h1 .dot::after {
+  @apply bg-[#FF5959] rounded-[50%] inline-block ml-[5px] h-[6px] w-[6px]
+}
+
+.hero .cta p {
+  @apply
+    text-[16px] leading-[1.8]
+    md:text-[15px]  md:mb-[25px_!important]
+}
+
+.parallax {
+  @apply
+    bg-cover bg-fixed
+}
+
+
+.overlay {
+  @apply
+    rounded-[20px] bg-[#4A63E7] left-0 top-0 opacity-[0.9] h-full w-full absolute 
+}
+
+
+/* Buttons */
+.btn {
+  @apply rounded-[100px] text-[14px] font-normal overflow-hidden p-[8.5px_20px] relative transform translate-y-0 transition-all duration-[0.3s] ease-in-out
+}
+
+/* .btn:not(:disabled):not(.disabled){
+  @apply cursor-pointer
+} */
+
+.btn-group-lg > .btn, .btn-lg {
+  @apply p-[12px_26px] text-[16px]
+}
+
+.btn i {
+  @apply mr-[10px] align-middle
+}
+
+.btn-default {
+  @apply text-white bg-[#FF5959] hover:bg-[#4A63E7] hover:transform hover:-translate-y-[3px] hover:shadow-lg hover:shadow-gray-700
+}
+
+.btn-border-light {
+  @apply text-white border-[1px] hover:text-black hover:bg-white hover:transform hover:-translate-y-[3px] hover:shadow-lg hover:shadow-gray-700
+}
+
+.btn-alt {
+  @apply text-white bg-[#4A63E7] hover:bg-[#FF5959] hover:transform hover:-translate-y-[3px] hover:shadow-lg hover:shadow-gray-700
+}
+
+section.padding {
+  @apply p-[80px_50px]
+}
+
+section.white-bg {
+  @apply bg-white
+}
+
+.shadow-blue {
+  @apply shadow-md shadow-gray-300
+}
+
+.section-title {
+  @apply m-0 after:content-['']
+}
+
+.section-title::after {
+  @apply bg-[#FF5959] rounded-[25px] block h-[5px] w-[30px] mt-[14px]
+}
+
+h3 {
+  @apply text-[24px]
+}
+
+.row {
+  @apply flex flex-wrap -mx-[10px]
+}
+
+.img_about {
+  @apply max-w-[100%] rounded-full border-4 border-blue-800
+}
+
+h2 {
+  @apply text-[30px]
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold m-[20px_0px] text-black
+}
+
+
+.skill-item h4 {
+  @apply text-[14px] uppercase font-extrabold
+}
+
+.clearfix {
+  @apply after:content-[''] 
+}
+
+.clearfix::after {
+  @apply block clear-both
+}
+
+.progress {
+  @apply bg-[#EBEBEB] h-[3px] mb-0 overflow-hidden rounded-sm shadow-none flex text-[0.75rem]
+}
+
+.progress-bar {
+  @apply float-left h-full text-[12px] leading-[3px] text-white text-center bg-[#ff5959] shadow-none transition-[width] duration-[1s] ease-ease delay-[0]
+}
+
+
+section.padding-50 {
+  @apply p-[50px]
+}
+
+.fact-item {
+  @apply m-[20px_0px]
+}
+.count {
+  @apply text-white
+}
+.icon-circle {
+  @apply text-[24px] text-white inline-block bg-[#FF5959] rounded-[50%] h-[60px] leading-[60px] text-center w-[60px]
+}
+
+.fact-item h2 {
+  @apply text-[36px] m-[12px_0_7px]
+}
+
+.service-item {
+  @apply text-gray-500 border-solid border-[1px] border-[#EFEFEF] rounded-[10px] p-[30px_20px] transition-all duration-[0.3s] ease-in-out
+}
+
+.service-item:hover {
+  @apply border-[#FF5959] bg-[#FF5959] text-white shadow-md
+}
+
+.service-item h4, .service-item i {
+  @apply transition-all duration-[0.3s] ease-in-out font-extrabold
+}
+
+.service-item:hover h4, .service-item:hover i {
+  @apply text-white
+}
+
+.icon-simple {
+  @apply text-[#FF5959] text-[24px]
+}
+
+/* timeline */
+.timeline {
+  @apply relative p-[70px_0] after:content-['']
+}
+
+.timeline::after {
+  @apply table clear-both
+}
+
+.entry {
+  @apply clear-both relative
+}
+
+.entry .title {
+  @apply float-left w-[20%] relative before:content-['']
+}
+
+.entry .title::before {
+  @apply absolute w-[8px] h-[8px] border-2 border-solid border-[#FF5959] bg-[#fff] rounded-full p-[4.5px] top-[15%] -right-[8px] z-[1]
+}
+
+.entry .body {
+  @apply m-[0_0_6em] float-right w-[80%] pl-[60px]
+}
+
+.timeline-line {
+  @apply absolute top-[0px] left-[calc(20%+2px)] bottom-0 w-[1px] bg-[#FF5959]
+}
+
+.timeline-line::after {
+  @apply bottom-0
+}
+
+.timeline-line::after, .timeline-line::before {
+  @apply content-[''] block rounded-full bg-[#FF5959] absolute -left-[3px] right-[7px] w-[7px] h-[7px]
+}
+
+.timeline-line::before {
+  @apply top-[0px]
+}
+
+#return-to-top {
+  @apply fixed bottom-[20px] right-[20px] text-white bg-gray-400 w-[40px] h-[40px] rounded-[50%] z-[4] transition-all duration-[0.1s] ease-in-out
+}
+
+#return-to-top i {
+  @apply m-0 relative left-[14px] top-[9px] text-[14px] transform translate-y-0 transition-all duration-[0.1s] ease-in-out
+}
+
+.pf-filter-wrapper {
+  @apply sm:block
+}
+
+.portfolio-item {
+  @apply relative overflow-hidden rounded-xl transition-all duration-[0.3s] ease-in-out
+}
+
+.portfolio-item .details {
+  @apply text-white absolute p-[0_25px] top-[25px] w-full z-[1]
+}
+
+.portfolio-item .details h4 {
+  @apply m-[0_0_4px] opacity-0 transform translate-y-[30px] transition-all duration-1000 ease-in text-white
+}
+
+.portfolio-item .details span {
+  @apply text-[12px] opacity-0 block transition-all ease-in transform translate-y-10
+}
+
+.portfolio-item .plus-icon {
+  @apply text-[#FF5959] bg-white rounded-full absolute text-[16px] left-[25px] bottom-[25px] opacity-0 leading-8 text-center h-[30px] w-[30px] transition-all duration-[0.3s] ease-in-out z-[1]
+}
+
+.portfolio-item .thumb {
+  @apply overflow-hidden
+}
+
+.portfolio-item .thumb img {
+  @apply transform scale-[1] transition-all duration-[0.3s] ease-in-out
+}
+
+.portfolio-item .mask {
+  @apply bg-[#FF5959] absolute left-0 top-0 opacity-0 h-[100%] w-[100%] transition-all duration-[0.3s] ease-in-out
+}
+
+.portfolio-item:hover {
+  @apply border-[#FF5959] bg-[#FF5959] text-white shadow-md z-[1]
+}
+
+.portfolio-item:hover img {
+  @apply transform scale-[1.1]
+}
+
+.portfolio-item:hover .mask {
+  @apply opacity-[0.8]
+}
+.portfolio-item:hover .plus-icon {
+  @apply opacity-[1]
+}
+
+.portfolio-item:hover .details h4, .portfolio-item:hover .details span {
+  @apply opacity-[1] transform translate-y-[0px]
+}
+
+.price-item {
+  @apply border-solid border-[1px] border-[#EFEFEF] rounded-[10px] p-[30px_0] shadow-md shadow-sky-100
+}
+
+.price-item i {
+  @apply bg-[#FFF] text-[24px] text-[#FF5959] block rounded-[50%] border-solid border-[1px] border-[#EFEFEF] h-[55px] w-[55px]  -top-[28px] absolute text-center leading-[55px] 
+}
+
+.price-item .plan {
+  @apply text-[12px] text-white bg-[#FF5959] rounded-[25px] inline-block p-[1px_9px] mt-[25px]
+}
+
+.price-item .price {
+  @apply text-[36px] m-[25px_0]
+}
+
+.price-item .price em {
+  @apply text-[18px] font-[normal] align-super mr-[4px]
+}
+
+.price-item .price span {
+  @apply text-[12px] text-[#888] font-normal
+}
+
+.price-item ul {
+  @apply list-none p-0 m-[-8px_0]
+}
+
+.price-item .btn {
+  @apply mt-[30px] inline-block
+} 
+
+.price-item.recommended {
+  @apply bg-[#4A63E7] text-white shadow-md
+}
+
+.price-item.recommended .price, .price-item.recommended .price span{
+  @apply text-white
+}
+
+.testimonial-item {
+  @apply border-solid border-[1px] border-[#EFEFEF] rounded-[10px] p-[30px_25px]
+}
+
+.testimonial-item .symbol {
+  @apply font-bold text-[#FF5959] text-[12px] mb-[20px] block
+}
+
+.testimonial-item p {
+  @apply mb-0
+}
+
+.testimonial-item .testimonial-details {
+  @apply mt-[25px]
+}
+
+.testimonial-item .testimonial-details .thumb {
+  @apply inline-block rounded-full overflow-hidden h-[40px] align-middle w-[40px]
+}
+
+.testimonial-item .testimonial-details .info {
+  @apply inline-block ml-[20px] align-middle
+}
+
+.testimonial-item .testimonial-details .info h4 {
+  @apply m-0
+}
+
+.testimonial-item .testimonial-details .info span {
+  @apply text-[11px] uppercase tracking-[0.4px]
+}
+
+.slick-dots {
+  @apply bottom-0 mt-[20px] relative text-center
+}
+
+.slick-dots li {
+  @apply w-[7px] h-[7px] m-[0_3px]
+}
+
+.slick-dots li {
+  @apply relative inline-block p-0 cursor-pointer
+}
+
+.slick-dots li button {
+  @apply w-[7px] h-[7px] p-0
+}
+
+.slick-dots li button {
+  @apply text-[0] leading-[0] block cursor-pointer text-transparent border-[0] outline bg-transparent
+}
+
+.slick-dots li button::before {
+  @apply content-[''] bg-[#E3E3E3] opacity-[1] rounded-full h-[7px] w-[7px]
+}
+
+.slick-dots li button::before {
+  @apply text-[6px] leading-5 absolute top-0 left-0 text-center text-black
+}
+
+.slick-dots li.slick-active {
+  @apply w-[7px] h-[7px]
+}
+
+.slick-dots li.slick-active button::before {
+  @apply bg-[#FF5959] opacity-[1] h-[7px] w-[7px]
+}
+
+.background-blue {
+  @apply bg-[#4A63E7]
+}
+
+.portfolio-filter {
+  @apply mb-[25px]
+}
+
+.list-inline {
+  @apply pl-0 list-none
+}
+
+.portfolio-filter li:not(:last-child) {
+  @apply mr-[1.5rem]
+}
+
+.portfolio-filter li.current {
+  @apply bg-[#FF5959] text-white p-[6px_14px_4px] rounded-[30px] hover:text-white
+}
+
+.portfolio-filter li {
+  @apply text-[#888] cursor-pointer text-[14px] font-normal relative hover:text-[#000]
+}
+
+.list-inline-item {
+  @apply inline-block
+}
+
+.portfolio-filter li:hover::after {
+  @apply h-[7px]
+}
+
+.blog-item .thumb {
+  @apply rounded-[10px] relative overflow-hidden transition-all duration-300 ease-in-out
+}
+
+.blog-item .thumb:hover {
+  @apply shadow-md
+}
+
+.blog-item .category {
+  @apply rounded-[50px] bg-[#FF5959] text-white text-[12px] font-bold p-[1px_8px] absolute left-[20px] top-[20px] z-[1]
+}
+
+.blog-item .thumb img {
+  @apply transform scale-100 transition-all duration-300 ease-in-out
+}
+
+.blog-item .thumb:hover img {
+  @apply transform scale-110
+}
+
+.blog-item .meta {
+  @apply text-[#ADADAD] text-[12px]
+}
+
+.list-inline-item {
+  @apply inline-block
+}
+
+.blog-item .meta li::after {
+  @apply content-[''] bg-[#FF5959] rounded-full inline-block h-[3px] w-[3px] ml-[1rem] align-middle
+}
+
+.blog-item .meta li:not(:last-child) {
+  @apply mr-[1rem]
+}
+
+.blog-item .meta li:last-child::after {
+  @apply hidden
+}
+
+.contact-info i {
+  @apply text-[24px] text-[#FF5959] float-left
+}
+
+.contact-info .details {
+  @apply ml-[40px]
+}
+
+.contact-info .details h5 {
+  @apply text-[16px] m-[0_0_5px]
+}
+
+.form-group {
+  @apply mb-['20px']
+}
+
+.form-control {
+  @apply block rounded-3xl w-full h-[40px] p-[10px_24px] text-[13px] font-normal leading-[1.6] text-[#333] bg-[#fff] border-solid border-[1px] border-[#E3E3E3]
+}
+
+textarea.form-control {
+  @apply h-auto
+}
+
+.swiper-pagination-bullet-active {
+  color: #FF5959 !important;
+}
+
+.client-item {
+  @apply min-h-[60px] relative
+}
+
+.client-item .inner {
+  @apply text-center absolute left-0 top-[50%] transform -translate-y-[50%] w-full
+}
+
+.client-item img {
+  @apply inline-block
+}
