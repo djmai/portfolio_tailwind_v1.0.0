@@ -76,7 +76,7 @@ _Con el comando anterior lo que hará, será instalar todas las dependencias nec
 
 ## Primer Inicio ✔️
 
-_Ahora vamos a proseguir con el primer inicio para poder realizar el despliegue y hacer pruebas del portafolio en la terminal ejecutamos lo siguiente_
+_Ahora vamos a proseguir con el primer inicio para poder realizar el despliegue y hacer pruebas del portafolio en la terminal ejecutamos lo siguiente dentro de la raíz de nuestro proyecto_
 
 ```bash
 # Desde el terminal ejecutamos lo siguiente:
@@ -85,6 +85,7 @@ _Ahora vamos a proseguir con el primer inicio para poder realizar el despliegue 
 
 _Este comando nos ayudara a poder ir compilando el CSS de Tailwind con forme vayamos haciendo modificaciones después de guardar el CSS de nuestro proyecto_
 
+_Abrir el archivo index.html que esta en la carpeta dist_
 
 <a name="Construido" />
 
