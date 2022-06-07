@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MMMV</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+  <link rel="stylesheet" href="css/theme.css">
+
+  <!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" /> -->
+
+  <!-- <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" /> -->
+
+  <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+
+<body x-data="{loaded: true}">
+
+  <div id="preloader" x-show="!loaded">
+    <div class="outer">
+      <div class="spinner">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-wrapper" x-data="{ open: false }" x-show="loaded" x-cloak>
+
+    <!-- mobile header -->
+    <!-- block md:hidden -->
+    <div class="mobile-header py-2 px-3 mt-4" :class="open ? 'push' : ''">
+      <button class="menu-icon p-0 mr-2" @click="open = !open">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a href="index.html" class="logo"><img
+          src="https://scontent.fgdl3-1.fna.fbcdn.net/v/t1.6435-9/158087933_10158810485599584_8347042598536676622_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=174925&_nc_eui2=AeElh2ND1R50_ChQVTvz8xYNhtkUpgOZerKG2RSmA5l6skt9hK5ucSjbA-4ZxTgbxE0&_nc_ohc=ZO2t1ruyVaIAX9itKYy&_nc_ht=scontent.fgdl3-1.fna&oh=00_AT_fENZeYW6qIx85lLQMR3d4j3seStBNr7Cg46sAVkgrFQ&oe=62AF20DB"
+          alt="Bako Doe" class="s"></a>
+      <a href="index.html" class="site-title dot ml-2">Miguel Martínez</a>
+    </div>
+
+    <header class="left float-left" :class="open ? 'open' : ''" id="header">
+      <button type="button" class="close" aria-label="Close" @click="open = !open">
+        <span aria-hidden="true">×</span>
+      </button>
+      <div class="header-inner flex items-start flex-col mCustomScrollbar _mCS_1 mCS_no_scrollbar">
+        <div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 228px;"
+          tabindex="0">
+          <div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
+            style="position:relative; top:0; left:0;" dir="ltr">
+            <a href="index.html"><img
+                src="https://scontent.fgdl3-1.fna.fbcdn.net/v/t1.6435-9/158087933_10158810485599584_8347042598536676622_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=174925&_nc_eui2=AeElh2ND1R50_ChQVTvz8xYNhtkUpgOZerKG2RSmA5l6skt9hK5ucSjbA-4ZxTgbxE0&_nc_ohc=ZO2t1ruyVaIAX9itKYy&_nc_ht=scontent.fgdl3-1.fna&oh=00_AT_fENZeYW6qIx85lLQMR3d4j3seStBNr7Cg46sAVkgrFQ&oe=62AF20DB"
+                alt="Bako Doe" class="mCS_img_loaded img-profile"></a>
+            <a href="index.html" class="site-title dot mt-3">Miguel Martínez</a>
+            <span class="site-slogan">Web Developer</span>
+
+            <nav>
+              <ul class="vertical-menu scrollspy" x-data="{ tab: 'home' }">
+                <li><a href="#home" class="nav-link" :class="{ 'active': tab === 'home' }" @click="tab = 'home'"><i class="icon-home"></i>Home</a></li>
+                <li><a href="#about" class="nav-link" :class="{ 'active': tab === 'about' }" @click="tab = 'about'"><i class="icon-user"></i>About</a></li>
+                <li><a href="#services" class="nav-link" :class="{ 'active': tab === 'services' }" @click="tab = 'services'"><i class="icon-bulb"></i>Services</a></li>
+                <li><a href="#resume" class="nav-link" :class="{ 'active': tab === 'resume' }" @click="tab = 'resume'"><i class="icon-graduation"></i>Resume</a></li>
+                <li><a href="#works" class="nav-link" :class="{ 'active': tab === 'works' }" @click="tab = 'works'"><i class="icon-grid"></i>Works</a></li>
+                <li><a href="#blog" class="nav-link" :class="{ 'active': tab === 'blog' }" @click="tab = 'blog'"><i class="icon-pencil"></i>Blog</a></li>
+                <li><a href="#contact" class="nav-link" :class="{ 'active': tab === 'contact' }" @click="tab = 'contact'"><i class="icon-phone"></i>Contact</a></li>
+              </ul>
+            </nav>
+
+            <div class="footer mt-8">
+
+              <ul class="social-icons inline-block list-none pb-[1rem]">
+                <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fab fa-dribbble"></i></a></li>
+              </ul>
+
+              <span class="copyright block">© 2020 Bako Template</span>
+            </div>
+          </div>
+          <div id="mCSB_1_scrollbar_vertical"
+            class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display:none;">
+            <div class="mCSB_draggerContainer">
+              <div id="mCSB_1_dragger_vertical" class="mCSB_dragger"
+                style="position: absolute; min-height: 30px; height: 0px; top: 0px; display: block; max-height: 442px;">
+                <div class="mCSB_dragger_bar" style="line-height: 30px;"></div>
+              </div>
+              <div class="mCSB_draggerRail"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content float-right" :class="open ? 'push' : ''">
+
+      <section class="hero background parallax shadow-slate-600 flex flex-row items-center" id="home"
+        data-image-src="images/hero.jpg"
+        style="background-image: url('https://jthemes.net/themes/html/bako-html/images/hero.jpg');">
+        <div class="cta mx-auto mt-2">
+          <h1 class="mt-0 mb-4">I’m Miguel Martínez<span class="dot"></span></h1>
+          <p class="mb-4">He lay on his armour-like back, and if he lifted his head a little he could see his brown
+            belly, slightly domed and divided by arches into stiff sections.</p>
+          <div class="grid grid-cols-12 gap-2 my-2">
+            <a class="btn btn-default btn-lg col-span-6 sm:col-span-8">
+              <i class="icon-grid"></i>View Portfolio
+            </a>
+            <a class="btn btn-border-light btn-lg col-span-6 sm:col-span-8">
+              <i class="icon-envelope"></i>Hire me</a>
+            </a>
+          </div>
+        </div>
+        <div class="overlay"></div>
+      </section>
+
+      <section id="about" class="shadow-blue white-bg padding">
+        <h3 class="section-title">About Me</h3>
+        <div class="spacer" data-height="80" style="height: 80px;"></div>
+
+        <div class="grid grid-cols-12 gap-4 my-2 items-center">
+          <div class="col-span-3 sm:col-span-12 md:col-span-4">
+            <img
+              src="https://scontent.fgdl3-1.fna.fbcdn.net/v/t1.6435-9/158087933_10158810485599584_8347042598536676622_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=174925&_nc_eui2=AeElh2ND1R50_ChQVTvz8xYNhtkUpgOZerKG2RSmA5l6skt9hK5ucSjbA-4ZxTgbxE0&_nc_ohc=ZO2t1ruyVaIAX9itKYy&_nc_ht=scontent.fgdl3-1.fna&oh=00_AT_fENZeYW6qIx85lLQMR3d4j3seStBNr7Cg46sAVkgrFQ&oe=62AF20DB"
+              alt="about" class="img_about">
+          </div>
+
+          <div class="col-span-9 sm:col-span-12 md:col-span-12 text-gray-700">
+            <h2 class="mt-4 mt-md-0 mb-4">Hello,</h2>
+            <p class="mb-0 ">I am Bako Doe, web developer from London, United Kingdom. I have rich experience in web
+              site
+              design and building and customization, also I am good at wordpress.</p>
+            <div class="grid grid-cols-12 gap-4 my-4">
+              <div class="col-span-6 sm:col-span-12 md:col-span-12">
+                <p class="mb-2">Name: <span class="font-bold">Bako Doe</span></p>
+                <p class="mb-0">Birthday: <span class="font-bold">14 August, 1990</span></p>
+              </div>
+              <div class="col-span-6 sm:col-span-12 md:col-span-12 mt-2 mt-md-0 mt-sm-2">
+                <p class="mb-2">Location: <span class="font-bold">London, UK</span></p>
+                <p class="mb-0">Email: <span class="font-bold">hello@bako.com</span></p>
+              </div>
+            </div>
+            <div class="grid grid-cols-12 gap-2 my-2">
+              <a href="#" class="btn btn-default col-span-6 sm:col-span-10 text-center p-[5px_15px]"><i
+                  class="icon-cloud-download"></i>Download CV</a>
+              <a href="#" class="btn btn-alt col-span-6 sm:col-span-10 text-center"><i class="icon-envelope"></i>Hire
+                me</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- <div class="grid grid-cols-12 gap-4 my-2 items-center">
+          <div class="col-span-3 sm:col-span-8">
+            <img
+              src="https://scontent.fgdl3-1.fna.fbcdn.net/v/t1.6435-9/158087933_10158810485599584_8347042598536676622_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=174925&_nc_eui2=AeElh2ND1R50_ChQVTvz8xYNhtkUpgOZerKG2RSmA5l6skt9hK5ucSjbA-4ZxTgbxE0&_nc_ohc=ZO2t1ruyVaIAX9itKYy&_nc_ht=scontent.fgdl3-1.fna&oh=00_AT_fENZeYW6qIx85lLQMR3d4j3seStBNr7Cg46sAVkgrFQ&oe=62AF20DB"
+              alt="about" class="img_about">
+          </div>
+
+          <div class="col-span-9 sm:col-span-12 text-gray-700">
+            <h2 class="mt-4 mt-md-0 mb-4">Hello,</h2>
+            <p class="mb-0 ">I am Bako Doe, web developer from London, United Kingdom. I have rich experience in web
+              site
+              design and building and customization, also I am good at wordpress.</p>
+            <div class="grid grid-cols-12 gap-4 my-4">
+              <div class="col-span-6 sm:col-span-12">
+                <p class="mb-2">Name: <span class="font-bold">Bako Doe</span></p>
+                <p class="mb-0">Birthday: <span class="font-bold">14 August, 1990</span></p>
+              </div>
+              <div class="col-span-6 sm:col-span-12 mt-2 mt-md-0 mt-sm-2">
+                <p class="mb-2">Location: <span class="font-bold">London, UK</span></p>
+                <p class="mb-0">Email: <span class="font-bold">hello@bako.com</span></p>
+              </div>
+            </div>
+            <div class="grid grid-cols-12 gap-2 my-2">
+              <a href="#" class="btn btn-default col-span-4 sm:col-span-10 text-center p-[5px_15px]"><i
+                  class="icon-cloud-download"></i>Download CV</a>
+              <a href="#" class="btn btn-alt col-span-4 sm:col-span-10 text-center"><i class="icon-envelope"></i>Hire
+                me</a>
+            </div>
+          </div>
+        </div> -->
+
+      </section>
+
+      <section id="skills" class="shadow-blue white-bg padding text-gray-500">
+        <h3 class="section-title">My skills</h3>
+        <div class="spacer" data-height="80" style="height: 80px;"></div>
+
+        <p class="mb-0">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+          live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+
+        <div class="grid grid-cols-12 gap-4 my-4">
+
+          <div class="col-span-6 sm:col-span-12">
+            <div class="skill-item" x-data="changePorcent()">
+              <div class="skill-info clearfix">
+                <h4 class="float-left mb-3 mt-0">WordPress</h4>
+                <span class="float-right">85%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85"
+                  :style="getPorcent(85)">
+                </div>
+              </div>
+              <div class="spacer" data-height="50" style="height: 50px;"></div>
+            </div>
+          </div>
+
+          <div class="col-span-6 sm:col-span-12">
+            <div class="skill-item" x-data="changePorcent()">
+              <div class="skill-info clearfix">
+                <h4 class="float-left mb-3 mt-0">HTML &amp; CSS</h4>
+                <span class="float-right">90%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90"
+                  :style="getPorcent(90)">
+                </div>
+              </div>
+              <div class="spacer" data-height="50" style="height: 50px;"></div>
+            </div>
+          </div>
+
+          <div class="col-span-6 sm:col-span-12">
+            <!-- skill item -->
+            <div class="skill-item" x-data="changePorcent()">
+              <div class="skill-info clearfix">
+                <h4 class="float-left mb-3 mt-0">jQuery</h4>
+                <span class="float-right">60%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60"
+                  :style="getPorcent(60)">
+                </div>
+              </div>
+              <div class="spacer d-md-none d-lg-none" data-height="50" style="height: 50px;"></div>
+            </div>
+          </div>
+
+          <div class="col-span-6 sm:col-span-12">
+            <!-- skill item -->
+            <div class="skill-item" x-data="changePorcent()">
+              <div class="skill-info clearfix">
+                <h4 class="float-left mb-3 mt-0">Sketch</h4>
+                <span class="float-right">70%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70"
+                  :style="getPorcent(70)">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="facts" class="shadow-dark color-white background parallax padding-50 text-white"
+        style="background-image: url('https://jthemes.net/themes/html/bako-html/images/background-1.jpg');">
+
+        <div class="grid grid-cols-12 gap-4 relative z-[1]">
+          <div class="col-span-3 sm:col-span-12" x-data="appFooterComponent()">
+            <!-- fact item -->
+            <div class="fact-item text-center">
+              <i class="icon-like icon-circle"></i>
+              <h2 class="count" x-text="getTime(157)"></h2>
+              <span>Projects completed</span>
+            </div>
+          </div>
+          <div class="col-span-3 sm:col-span-12" x-data="appFooterComponent()">
+            <!-- fact item -->
+            <div class="fact-item text-center">
+              <i class="icon-cup icon-circle"></i>
+              <h2 class="count" x-text="getTime(3560)"></h2>
+              <span>Cup of coffee</span>
+            </div>
+          </div>
+          <div class="col-span-3 sm:col-span-12" x-data="appFooterComponent()">
+            <!-- fact item -->
+            <div class="fact-item text-center">
+              <i class="icon-emotsmile icon-circle"></i>
+              <h2 class="count" x-text="getTime(350)"></h2>
+              <span>Happy customers</span>
+            </div>
+          </div>
+          <div class="col-span-3 sm:col-span-12" x-data="appFooterComponent()">
+            <!-- fact item -->
+            <div class="fact-item text-center">
+              <i class="icon-trophy icon-circle"></i>
+              <h2 class="count" x-text="getTime(30)"></h2>
+              <span>Awards won</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="overlay"></div>
+
+      </section>
+
+      <section id="services" class="shadow-blue white-bg padding">
+        <h3 class="section-title">Services</h3>
+        <div class="spacer" data-height="80" style="height: 80px;"></div>
+
+        <div class="grid grid-cols-12 gap-4">
+
+          <div class="col-span-4 sm:col-span-12">
+            <!-- service item -->
+            <div class="service-item text-center">
+              <i class="icon-globe icon-simple"></i>
+              <h4 class="my-3">Development</h4>
+              <p class="mb-0">Lorem ipsum dolor sit amet consectetuer elit.</p>
+            </div>
+            <div class="spacer" data-height="20" style="height: 20px;"></div>
+          </div>
+
+          <div class="col-span-4 sm:col-span-12">
+            <!-- service item -->
+            <div class="service-item text-center">
+              <i class="icon-chemistry icon-simple"></i>
+              <h4 class="my-3">Design</h4>
+              <p class="mb-0">Lorem ipsum dolor sit amet consectetuer elit.</p>
+            </div>
+            <div class="spacer" data-height="20" style="height: 20px;"></div>
+          </div>
+
+          <div class="col-span-4 sm:col-span-12">
+            <!-- service item -->
+            <div class="service-item text-center">
+              <i class="icon-directions icon-simple"></i>
+              <h4 class="my-3">Advertising</h4>
+              <p class="mb-0">Lorem ipsum dolor sit amet consectetuer elit.</p>
+            </div>
+            <div class="spacer" data-height="20" style="height: 20px;"></div>
+          </div>
+
+          <div class="col-span-4 sm:col-span-12">
+            <!-- service item -->
+            <div class="service-item text-center">
+              <i class="icon-rocket icon-simple"></i>
+              <h4 class="my-3">SEO</h4>
+              <p class="mb-0">Lorem ipsum dolor sit amet consectetuer elit.</p>
+            </div>
+            <div class="spacer d-md-none d-lg-none" data-height="20" style="height: 20px;"></div>
+          </div>
+
+          <div class="col-span-4 sm:col-span-12">
+            <!-- service item -->
+            <div class="service-item text-center">
+              <i class="icon-note icon-simple"></i>
+              <h4 class="my-3">Copy Write</h4>
+              <p class="mb-0">Lorem ipsum dolor sit amet consectetuer elit.</p>
+            </div>
+            <div class="spacer d-md-none d-lg-none" data-height="20" style="height: 20px;"></div>
+          </div>
+
+          <div class="col-span-4 sm:col-span-12">
+            <!-- service item -->
+            <div class="service-item text-center">
+              <i class="icon-bubbles icon-simple"></i>
+              <h4 class="my-3">Support</h4>
+              <p class="mb-0">Lorem ipsum dolor sit amet consectetuer elit.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="resume" class="shadow-blue white-bg padding">
+        <h3 class="section-title">Experience</h3>
+        <div class="spacer" data-height="80" style="height: 80px;"></div>
+
+        <!-- timeline -->
+        <div class="timeline text-gray-500">
+          <div class="entry">
+            <div class="title">
+              <span>2019 - Present</span>
+            </div>
+            <div class="body">
+              <h4 class="mt-0">Academic Degree</h4>
+              <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget dolor aenean massa.
+              </p>
+            </div>
+          </div>
+          <div class="entry">
+            <div class="title">
+              <span>2018 - 2015</span>
+            </div>
+            <div class="body">
+              <h4 class="mt-0">Bachelor’s Degree</h4>
+              <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget dolor aenean massa.
+              </p>
+            </div>
+          </div>
+          <div class="entry">
+            <div class="title">
+              <span>2015 - 2012</span>
+            </div>
+            <div class="body">
+              <h4 class="mt-0">Honours Degree</h4>
+              <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget dolor aenean massa.
+              </p>
+            </div>
+          </div>
+          <span class="timeline-line"></span>
+        </div>
+      </section>
+
+      <section id="works" class="shadow-blue white-bg padding" x-data="loadProjects()">
+        <h3 class="section-title">Portfolio</h3>
+        <div class="spacer" data-height="80" style="height: 80px;"></div>
+
+        <!-- portfolio filter (desktop) -->
+        <ul class="portfolio-filter list-inline block sm:hidden">
+          <li class="list-inline-item" :class="search == '' ? 'current' : ''" x-on:click="search = ''">All Projects</li>
+          <li class="list-inline-item" :class="search == 'branding' ? 'current' : ''" x-on:click="search = 'branding'">Branding</li>
+          <li class="list-inline-item" :class="search == 'creative' ? 'current' : ''" x-on:click="search = 'creative'">Creative</li>
+          <li class="list-inline-item" :class="search == 'design' ? 'current' : ''" x-on:click="search = 'design'">Design</li>
+          <li class="list-inline-item" :class="search == 'video' ? 'current' : ''" x-on:click="search = 'video'">Video</li>
+        </ul>
+
+        <!-- portfolio filter (mobile) -->
+        <div class="pf-filter-wrapper mb-4 hidden sm:block">
+          <select class="portfolio-filter-mobile">
+            <option value="*">Everything</option>
+            <option value=".creative">Creative</option>
+            <option value=".video">Video</option>
+            <option value=".design">Design</option>
+            <option value=".branding">Branding</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-12 gap-4" >
+          <template x-for="item in filteredProjects" :key="item.id">
+            <div class="col-span-4 sm:col-span-12">
+              <a href="https://jthemes.net/themes/html/bako-html/work-single.html">
+                <div class="portfolio-item">
+                  <div class="details">
+                    <h4 class="title" x-text="item.title">Creative Art</h4>
+                    <span class="term" x-text="item.term">Art, Creative</span>
+                  </div>
+                  <span class="plus-icon">+</span>
+                  <div class="thumb">
+                    <img :src="`${item.img}`" :alt="`${item.title}`">
+                    <div class="mask"></div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </template>
+        </div>
+
+        <!-- <div class="container pt-8 mx-auto" x-data="loadEmployees()">
+          <input x-ref="searchField" x-model="search" x-on:keydown.window.prevent.slash="$refs.searchField.focus()"
+            placeholder="Search for an employee..." type="search"
+            class="block w-full bg-gray-200 focus:outline-none focus:bg-white focus:shadow text-gray-700 font-bold rounded-lg px-4 py-3" />
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <template x-for="item in filteredEmployees" :key="item.id">
+              <div
+                class="flex items-center shadow hover:bg-indigo-100 hover:shadow-lg hover:rounded transition duration-150 ease-in-out transform hover:scale-105 p-3">
+                <img class="w-10 h-10 rounded-full mr-4" :src="`${item.profile_image}`" />
+                <div class="text-sm">
+                  <p class="text-gray-900 leading-none" x-text="item.employee_name + ' (' + item.employee_age + ')'">
+                  </p>
+                  <p class="text-gray-600" x-text="'$'+item.employee_salary/100"></p>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div> -->
+      </section>
+
+      <section id="price" class="shadow-blue white-bg padding text-gray-500">
+        <h3 class="section-title">Pricing table</h3>
+        <div class="spacer" data-height="97" style="height: 97px;"></div>
+
+        <div class="grid grid-cols-12">
+
+          <div class="col-span-4 sm:col-span-12 pr-0 mt-3 relative">
+            <!-- price item -->
+            <div class="price-item text-center">
+              <div class="flex justify-center">
+                <i class="price-icon icon-energy"></i>
+              </div>
+              <span class="plan">Basic</span>
+              <h3 class="price"><em>$</em>14<span>/mo</span></h3>
+              <div class="price-content">
+                <ul>
+                  <li>Frontend Builder</li>
+                  <li>Regular Support</li>
+                  <li>1 Years of Updates</li>
+                </ul>
+              </div>
+              <a href="#" class="btn btn-default">Get Started</a>
+            </div>
+          </div>
+
+          <div class="col-span-4 sm:col-span-12 sm:px-3 md:px-0 sm:my-5 md:my-0 relative">
+            <!-- price item -->
+            <div class="price-item text-center recommended">
+              <div class="flex justify-center">
+                <i class="price-icon icon-fire"></i>
+              </div>
+              <span class="plan">Professional</span>
+              <h3 class="price"><em>$</em>41<span>/mo</span></h3>
+              <div class="price-content">
+                <ul>
+                  <li>Frontend Builder</li>
+                  <li>Regular Support</li>
+                  <li>2 Years of Updates</li>
+                  <li>White Labeling</li>
+                </ul>
+              </div>
+              <a href="#" class="btn btn-default">Get Started</a>
+            </div>
+          </div>
+
+          <div class="col-span-4 sm:col-span-12 pr-0 mt-3 relative">
+            <!-- price item -->
+            <div class="price-item text-center">
+              <div class="flex justify-center">
+                <i class="price-icon icon-rocket"></i>
+              </div>
+              <span class="plan">Premium</span>
+              <h3 class="price"><em>$</em>99<span>/mo</span></h3>
+              <div class="price-content">
+                <ul>
+                  <li>Frontend Builder</li>
+                  <li>Regular Support</li>
+                  <li>3 Years of Updates</li>
+                </ul>
+              </div>
+              <a href="#" class="btn btn-default">Get Started</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="testimonials" class="shadow-blue white-bg padding text-gray-500">
+        <h3 class="section-title">Testimonials</h3>
+        <div class="spacer" data-height="97" style="height: 97px;"></div>
+
+        <div class="testimonials-wrapper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <span class="symbol"><i class="fas fa-quote-left"></i></span>
+                <p>I enjoy working with the theme and learn so much. You guys make the process fun and interesting.
+                  Good luck!</p>
+                <div class="testimonial-details">
+                  <div class="thumb">
+                    <img src="https://jthemes.net/themes/html/bako-html/images/customer-1.png" alt="customer-name">
+                  </div>
+                  <div class="info">
+                    <h4>Helen Doe</h4>
+                    <span>Themeforest customer</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <span class="symbol"><i class="fas fa-quote-left"></i></span>
+                <p>I enjoy working with the theme and learn so much. You guys make the process fun and interesting.
+                  Good luck!</p>
+                <div class="testimonial-details">
+                  <div class="thumb">
+                    <img src="https://jthemes.net/themes/html/bako-html/images/customer-2.png" alt="customer-name">
+                  </div>
+                  <div class="info">
+                    <h4>Jane Doe</h4>
+                    <span>Themeforest customer</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <span class="symbol"><i class="fas fa-quote-left"></i></span>
+                <p>I enjoy working with the theme and learn so much. You guys make the process fun and interesting.
+                  Good luck!</p>
+                <div class="testimonial-details">
+                  <div class="thumb">
+                    <img src="https://jthemes.net/themes/html/bako-html/images/customer-1.png" alt="customer-name">
+                  </div>
+                  <div class="info">
+                    <h4>Helen Doe</h4>
+                    <span>Themeforest customer</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </section>
+
+      <section id="clients" class="shadow-dark background-blue color-white padding-50">
+        <h2 class="hidden">Clients</h2>
+        <div class="clients-wrapper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide px-2">
+              <div class="client-item">
+                <div class="inner">
+                  <img src="https://jthemes.net/themes/html/bako-html/images/clients/1.png" alt="client-name">
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide px-2">
+              <div class="client-item">
+                <div class="inner">
+                  <img src="https://jthemes.net/themes/html/bako-html/images/clients/2.png" alt="client-name">
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide px-2">
+              <div class="client-item">
+                <div class="inner">
+                  <img src="https://jthemes.net/themes/html/bako-html/images/clients/3.png" alt="client-name">
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide px-2">
+              <div class="client-item">
+                <div class="inner">
+                  <img src="https://jthemes.net/themes/html/bako-html/images/clients/4.png" alt="client-name">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="blog" class="shadow-blue white-bg padding">
+        <h3 class="section-title">Recent posts</h3>
+        <div class="spacer" data-height="80" style="height: 80px;"></div>
+        <div class="grid grid-cols-12 gap-4">
+
+          <div class="col-span-4 sm:col-span-12">
+            <div class="blog-item">
+              <div class="thumb">
+                <a href="#">
+                  <span class="category">Thoughts</span>
+                </a>
+                <a href="#">
+                  <img src="https://jthemes.net/themes/html/bako-html/images/blog/1.jpg" alt="blog-title">
+                </a>
+              </div>
+              <h4 class="mt-4 mb-0"><a href="#">The Truth About Design In 3 Minutes</a></h4>
+              <ul class="list-inline meta mb-0 mt-3">
+                <li class="list-inline-item">13 March, 2019</li>
+                <li class="list-inline-item">Bako Doe</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-span-4 sm:col-span-12">
+            <div class="blog-item">
+              <div class="thumb">
+                <a href="#">
+                  <span class="category">Blog</span>
+                </a>
+                <a href="#">
+                  <img src="https://jthemes.net/themes/html/bako-html/images/blog/2.jpg" alt="blog-title">
+                </a>
+              </div>
+              <h4 class="mt-4 mb-0"><a href="#">The Ugly Truth About Design</a></h4>
+              <ul class="list-inline meta mb-0 mt-3">
+                <li class="list-inline-item">13 March, 2019</li>
+                <li class="list-inline-item">Bako Doe</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-span-4 sm:col-span-12">
+            <div class="blog-item">
+              <div class="thumb">
+                <a href="#">
+                  <span class="category">Tech</span>
+                </a>
+                <a href="#">
+                  <img src="https://jthemes.net/themes/html/bako-html/images/blog/3.jpg" alt="blog-title">
+                </a>
+              </div>
+              <h4 class="mt-4 mb-0"><a href="#">How To Become Better With UI Design</a></h4>
+              <ul class="list-inline meta mb-0 mt-3">
+                <li class="list-inline-item">13 March, 2019</li>
+                <li class="list-inline-item">Bako Doe</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="shadow-blue white-bg padding">
+        <h3 class="section-title">Get in touch</h3>
+        <div class="spacer" data-height="80" style="height: 80px;"></div>
+        <div class="grid grid-cols-12 gap-4">
+          <div class="col-span-4 sm:col-span-12 mb-4 md:mb-0">
+            <div class="contact-info mb-5">
+              <i class="icon-phone"></i>
+              <div class="details">
+                <h5>Phone</h5>
+                <span>+44 1632 960428</span>
+              </div>
+            </div>
+            <div class="contact-info mb-5">
+              <i class="icon-envelope"></i>
+              <div class="details">
+                <h5>Email address</h5>
+                <span>hello@bako.com</span>
+              </div>
+            </div>
+            <div class="contact-info">
+              <i class="icon-location-pin"></i>
+              <div class="details">
+                <h5>Location</h5>
+                <span>West Palm Beach, 4669 Travis Street</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-span-8 sm:col-span-12">
+            <!-- Contact Form -->
+            <form id="contact-form" class="contact-form" method="post" action="form/contact.php" novalidate="true">
+
+              <div class="messages"></div>
+
+              <div class="grid grid-cols-12 gap-4">
+                <div class="col-span-6 sm:col-span-12 xl:col-span-6 mb-4">
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Your name"
+                      required="required" data-error="Name is required.">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+
+                <div class="col-span-6 sm:col-span-12 xl:col-span-6 mb-4">
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="InputEmail" name="InputEmail"
+                      placeholder="Email address" required="required" data-error="Email is required.">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+
+                <div class="col-span-12 mb-4">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="InputSubject" name="InputSubject" placeholder="Subject"
+                      required="required" data-error="Subject is required.">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+
+                <div class="col-span-12 mb-4">
+                  <div class="form-group">
+                    <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" placeholder="Message"
+                      required="required" data-error="Message is required."></textarea>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+
+              </div>
+
+              <button type="submit" name="submit" id="submit" value="Submit" class="btn btn-default disabled"><i
+                  class="icon-paper-plane"></i>Send Message</button><!-- Send Button -->
+
+            </form>
+            <!-- Contact Form end -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- <a href="javascript:" id="return-to-top" class="text-white" x-data="{scroll : false}" @click.window="window.scrollTo({top: 0, behavior: 'smooth'})"><i class="fa fa-chevron-up"></i></a> -->
+
+  <a id="return-to-top" x-cloak x-data="{scroll : false}"
+    @scroll.window="document.documentElement.scrollTop > 300 ? scroll = true : scroll = false" x-show="scroll"
+    @click="window.scrollTo({top: 0, behavior: 'smooth'})" type="button" x-transition.opacity>
+    <i class="fa fa-chevron-up"></i>
+  </a>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+    new Swiper(".testimonials-wrapper", {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 10,
+      breakpoints: {
+        // when window width is >= 320px
+        515: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        }
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+
+    new Swiper(".clients-wrapper", {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 20,
+      breakpoints: {
+        // when window width is >= 320px
+        515: {
+          slidesPerView: 4,
+          spaceBetween: 20
+        }
+      },
+    });
+
+    function appFooterComponent() {
+      return {
+        counter: 0,
+        getTime(limite) {
+          var refreshIntervalId = setInterval(() => {
+            if (this.counter < limite) {
+              this.counter++;
+            }
+          }, 50);
+          if (this.counter >= limite) {
+            clearInterval(refreshIntervalId);
+          }
+          return this.counter;
+        },
+      }
+    }
+
+    function changePorcent() {
+      return {
+        porcent: 0,
+        getPorcent(limite) {
+          var refreshIntervalId = setInterval(() => {
+            if (this.porcent < limite) {
+              this.porcent++;
+            }
+          }, 50);
+          if (this.porcent >= limite) {
+            clearInterval(refreshIntervalId);
+          }
+          style = 'width: ' + this.porcent + '%';
+          return style;
+        },
+      }
+    }
+
+
+    function loadProjects() {
+      return {
+        search: "",
+        myForData: dataProjects,
+        filteredProjects() {
+          console.log(this.search);
+          if (this.search === "") {
+            return this.myForData;
+          }
+          return this.myForData.filter((item) => {
+            return item.type
+              .toLowerCase()
+              .includes(this.search.toLowerCase());
+          });
+        },
+      };
+    }
+
+    var dataProjects = [{
+      id: 1,
+      title: "Creative Art",
+      term: "Art, Creative",
+      img: "https://jthemes.net/themes/html/bako-html/images/portfolio/1.jpg",
+      type: 'video'
+    }, {
+      id: "2",
+      title: "Apple USB",
+      term: "Creative, Design",
+      img: "https://jthemes.net/themes/html/bako-html/images/portfolio/2.jpg",
+      type: 'creative, design'
+    }, {
+      id: "3",
+      title: "Work Space",
+      term: "Branding",
+      img: "https://jthemes.net/themes/html/bako-html/images/portfolio/3.jpg",
+      type: 'branding'
+    }, {
+      id: "4",
+      title: "Creative Bulb",
+      term: "Creative",
+      img: "https://jthemes.net/themes/html/bako-html/images/portfolio/4.jpg",
+      type: 'creative'
+    }, {
+      id: "5",
+      title: "iPhone 8",
+      term: "Art, Branding",
+      img: "https://jthemes.net/themes/html/bako-html/images/portfolio/5.jpg",
+      type: 'video, branding'
+    }, {
+      id: "6",
+      title: "Minimal Art",
+      term: "Design, Creative",
+      img: "https://jthemes.net/themes/html/bako-html/images/portfolio/6.jpg",
+      type: 'creative, design'
+    }, 
+  ];
+
+    function loadEmployees() {
+      return {
+        search: "",
+        myForData: sourceData,
+        filteredEmployees() {
+          if (this.search === "") {
+            return this.myForData;
+          }
+          return this.myForData.filter((item) => {
+            return item.employee_name
+              .toLowerCase()
+              .includes(this.search.toLowerCase());
+          });
+        },
+      };
+    }
+
+    var sourceData = [{
+        id: "1",
+        employee_name: "Tiger Nixon",
+        employee_salary: "320800",
+        employee_age: "61",
+        profile_image: "https://randomuser.me/api/portraits/men/1.jpg",
+      },
+      {
+        id: "2",
+        employee_name: "Garrett Winters",
+        employee_salary: "170750",
+        employee_age: "63",
+        profile_image: "https://randomuser.me/api/portraits/men/2.jpg",
+      },
+      {
+        id: "3",
+        employee_name: "Ashton Cox",
+        employee_salary: "86000",
+        employee_age: "66",
+        profile_image: "https://randomuser.me/api/portraits/men/3.jpg",
+      },
+      {
+        id: "4",
+        employee_name: "Cedric Kelly",
+        employee_salary: "433060",
+        employee_age: "22",
+        profile_image: "https://randomuser.me/api/portraits/men/4.jpg",
+      },
+      {
+        id: "5",
+        employee_name: "Airi Satou",
+        employee_salary: "162700",
+        employee_age: "33",
+        profile_image: "https://randomuser.me/api/portraits/women/5.jpg",
+      },
+      {
+        id: "6",
+        employee_name: "Brielle Williamson",
+        employee_salary: "372000",
+        employee_age: "61",
+        profile_image: "https://randomuser.me/api/portraits/women/6.jpg",
+      },
+      {
+        id: "7",
+        employee_name: "Herrod Chandler",
+        employee_salary: "137500",
+        employee_age: "59",
+        profile_image: "https://randomuser.me/api/portraits/men/7.jpg",
+      },
+      {
+        id: "8",
+        employee_name: "Rhona Davidson",
+        employee_salary: "327900",
+        employee_age: "55",
+        profile_image: "https://randomuser.me/api/portraits/women/8.jpg",
+      },
+      {
+        id: "9",
+        employee_name: "Colleen Hurst",
+        employee_salary: "205500",
+        employee_age: "39",
+        profile_image: "https://randomuser.me/api/portraits/women/9.jpg",
+      },
+      {
+        id: "10",
+        employee_name: "Sonya Frost",
+        employee_salary: "103600",
+        employee_age: "23",
+        profile_image: "https://randomuser.me/api/portraits/women/10.jpg",
+      },
+      {
+        id: "11",
+        employee_name: "Jena Gaines",
+        employee_salary: "90560",
+        employee_age: "30",
+        profile_image: "https://randomuser.me/api/portraits/women/11.jpg",
+      },
+      {
+        id: "12",
+        employee_name: "Quinn Flynn",
+        employee_salary: "342000",
+        employee_age: "22",
+        profile_image: "https://randomuser.me/api/portraits/men/12.jpg",
+      },
+      {
+        id: "13",
+        employee_name: "Charde Marshall",
+        employee_salary: "470600",
+        employee_age: "36",
+        profile_image: "https://randomuser.me/api/portraits/women/12.jpg",
+      },
+      {
+        id: "14",
+        employee_name: "Haley Kennedy",
+        employee_salary: "313500",
+        employee_age: "43",
+        profile_image: "https://randomuser.me/api/portraits/women/14.jpg",
+      },
+      {
+        id: "15",
+        employee_name: "Tatyana Fitzpatrick",
+        employee_salary: "385750",
+        employee_age: "19",
+        profile_image: "https://randomuser.me/api/portraits/women/15.jpg",
+      },
+      {
+        id: "16",
+        employee_name: "Michael Silva",
+        employee_salary: "198500",
+        employee_age: "66",
+        profile_image: "https://randomuser.me/api/portraits/men/16.jpg",
+      },
+      {
+        id: "17",
+        employee_name: "Paul Byrd",
+        employee_salary: "725000",
+        employee_age: "64",
+        profile_image: "https://randomuser.me/api/portraits/men/17.jpg",
+      },
+      {
+        id: "18",
+        employee_name: "Gloria Little",
+        employee_salary: "237500",
+        employee_age: "59",
+        profile_image: "https://randomuser.me/api/portraits/women/18.jpg",
+      },
+      {
+        id: "19",
+        employee_name: "Bradley Greer",
+        employee_salary: "132000",
+        employee_age: "41",
+        profile_image: "https://randomuser.me/api/portraits/men/19.jpg",
+      },
+      {
+        id: "20",
+        employee_name: "Dai Rios",
+        employee_salary: "217500",
+        employee_age: "35",
+        profile_image: "https://randomuser.me/api/portraits/men/20.jpg",
+      },
+      {
+        id: "21",
+        employee_name: "Jenette Caldwell",
+        employee_salary: "345000",
+        employee_age: "30",
+        profile_image: "https://randomuser.me/api/portraits/women/21.jpg",
+      },
+      {
+        id: "22",
+        employee_name: "Yuri Berry",
+        employee_salary: "675000",
+        employee_age: "40",
+        profile_image: "https://randomuser.me/api/portraits/men/22.jpg",
+      },
+      {
+        id: "23",
+        employee_name: "Caesar Vance",
+        employee_salary: "106450",
+        employee_age: "21",
+        profile_image: "https://randomuser.me/api/portraits/men/23.jpg",
+      },
+      {
+        id: "24",
+        employee_name: "Doris Wilder",
+        employee_salary: "85600",
+        employee_age: "23",
+        profile_image: "https://randomuser.me/api/portraits/women/24.jpg",
+      },
+    ];
+  </script>
+
+
+
+</body>
+
+</html>

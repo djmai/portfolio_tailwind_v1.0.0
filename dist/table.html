@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/rowgroup/1.2.0/css/rowGroup.dataTables.min.css">
+
+</head>
+
+<body>
+  <div style="margin: 100px;">
+    <table id="example" class="display" style="width:100%">
+      <thead>
+        <tr>
+          <th>Division</th>
+          <th>Grupo</th>
+          <th>Clase</th>
+          <th>ResultadoClase</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/rowgroup/1.2.0/js/dataTables.rowGroup.min.js"></script>
+
+
+  <script>
+    $(document).ready(function () {
+      data = [{
+          "nombreDivision": "Alimentos, Bebidas y Tabaco",
+          "nombreGrupo": "Aceites y grasas comestibles",
+          "nombreClase": "501516 - Grasas y aceites animales comestibles",
+          "nombreResultadoClase": "50151600"
+        }, {
+          "nombreDivision": "Alimentos, Bebidas y Tabaco",
+          "nombreGrupo": "Aceites y grasas comestibles",
+          "nombreClase": "501516 - Grasas y aceites animales comestibles",
+          "nombreResultadoClase": "50151604"
+        }, {
+          "nombreDivision": "Alimentos, Bebidas y Tabaco",
+          "nombreGrupo": "Aceites y grasas comestibles",
+          "nombreClase": "501516 - Grasas y aceites animales comestibles",
+          "nombreResultadoClase": "50151605"
+        }, {
+          "nombreDivision": "Alimentos, Bebidas y Tabaco",
+          "nombreGrupo": "Aceites y grasas comestibles",
+          "nombreClase": "501516 - Grasas y aceites animales comestibles",
+          "nombreResultadoClase": "50151606"
+        },
+        {
+          "nombreDivision": "Alimentos",
+          "nombreGrupo": "Aceites y grasas comestibles",
+          "nombreClase": "501516 - Grasas y aceites animales comestibles",
+          "nombreResultadoClase": "50151606"
+        }
+      ];
+
+      // Copiar estas variables
+      var collapsedGroups = {};
+      var top = '';
+      var middle = '';
+      var parent = '';
+      table = $('#example').DataTable({
+        data: data,
+        columns: [{
+          data: 'nombreDivision'
+        }, {
+          data: 'nombreGrupo'
+        }, {
+          data: 'nombreClase'
+        }, {
+          data: 'nombreResultadoClase'
+        }],
+
+        // Copia y pega esto sustituyendo el rowGroup
+        rowGroup: {
+          dataSrc: ['nombreDivision', 'nombreGrupo', 'nombreClase'],
+          startRender: function (rows, group, level) {
+            var all;
+
+            if (level === 0) {
+              top = group;
+              all = group;
+              middle = '';
+            } else {
+              // if parent collapsed, nothing to do
+              if (!!collapsedGroups[top]) {
+                return;
+              }
+              if (level === 1) {
+                middle = group
+              }
+              all = top + middle + group;
+            }
+
+            // console.log(group, level, all)
+
+            var collapsed = !!collapsedGroups[all];
+
+            rows.nodes().each(function (r) {
+              r.style.display = collapsed ? 'none' : '';
+            });
+
+            switch (level) {
+              case 0:
+                if (group == 'No group') {
+                  group == 'Sin DDEEAA';
+                }
+                break;
+              case 1:
+                if (group == 'No group') {
+                  group == 'Sin Unidad';
+                }
+                break;
+              case 2:
+                if (group == 'No group') {
+                  group == 'Sin Dependencia';
+                }
+                break;
+            }
+            // Add category name to the <tr>. NOTE: Hardcoded colspan
+            return $('<tr/>')
+              .append('<td colspan="15">' + group + ' (' + rows.count() + ')</td>')
+              .attr('data-name', all)
+              .toggleClass('collapsed', collapsed);
+          }
+        },
+        columnDefs: [{
+          targets: [0, 1, 2],
+          visible: false
+        }],
+      });
+
+      // Esto sirve para ocultar las filas finales de cada categoria
+      $('#example tbody').on('click', 'tr.dtrg-start', function () {
+        var name = $(this).data('name');
+        collapsedGroups[name] = !collapsedGroups[name];
+        table.draw(false);
+      });
+
+    });
+  </script>
+
+  <!-- El estilo para la tabla -->
+  <style>
+    table.dataTable tbody td {
+      vertical-align: middle;
+    }
+
+    table.dataTable tbody td {
+      vertical-align: middle;
+    }
+
+    table.dataTable tbody tr {
+      background-color: rgb(255, 255, 255);
+    }
+
+    table.dataTable tr.dtrg-group.dtrg-level-0 td {
+      font-weight: bold;
+    }
+
+    .table-striped tbody tr:nth-of-type(2n+1) {
+      background-color: rgb(255, 255, 255);
+    }
+
+    table.dataTable tr.dtrg-group td {
+      background-color: #e0e0e0;
+    }
+
+    table.dataTable tr.dtrg-group.dtrg-level-1 td:first-child {
+      padding-left: 2em;
+    }
+
+    table.dataTable tr.dtrg-group.dtrg-level-1 td {
+      background-color: #f0f0f0;
+      padding-top: 0.25em;
+      padding-bottom: 0.25em;
+    }
+
+    table.dataTable tr.dtrg-group.dtrg-level-2 td:first-child {
+      padding-left: 3em;
+    }
+
+    table.dataTable tr.dtrg-group.dtrg-level-2 td {
+      background-color: #fff0f0;
+    }
+
+    table.dataTable.compact tbody tr td.order_id {
+      padding-left: 4em;
+    }
+
+    table.dataTable tr.even td:first-child {
+      padding-left: 5em;
+    }
+
+    table.dataTable tr.odd td:first-child {
+      padding-left: 5em;
+    }
+  </style>
+</body>
+
+</html>
